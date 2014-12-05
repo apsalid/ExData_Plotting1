@@ -18,11 +18,10 @@ df <- filter(df, Date >= "2007-02-01" & Date <= "2007-02-02")
 df <- mutate(df, dateandtimenewcolumn = paste(as.Date(Date), Time) )
 df <- mutate(df, dateandtimenewcolumn = as.POSIXct(dateandtimenewcolumn) ) 
 
-## The histogram here
-hist(df[[3]], main="Global Active Power", xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")
+## The plot here
+plot(df[[3]]~df[[10]], type="l",ylab="Global Active Power (kilowatts)", xlab="")
 
 ## Saving to file
-dev.copy(png, file="plot1.png", height=480, width=480)
+dev.copy(png, file="plot2.png", height=480, width=480)
 dev.off()
-
 
